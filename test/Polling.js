@@ -15,7 +15,7 @@ contract("Polling",function(accounts){
 
 
   //TEST2   
-    it("TEST2-check vote event and vote counts for optionA and optionB" , function() {
+    it("TEST2-user votes, so check vote event and vote counts for optionA and optionB" , function() {
         return Polling.deployed().then(function(instance) { 
                     pollInstance = instance;
                       return pollInstance.vote(2022,{from:accounts[1]});
@@ -45,6 +45,22 @@ contract("Polling",function(accounts){
     
 })
 });
+
+
+//TEST2A 
+it("TEST2A-user tries to double vote, so expect exception" , function() {
+  return Polling.deployed().then(function(instance) { 
+              pollInstance = instance;
+              return pollInstance.vote(2022,{from:accounts[1]});
+
+     }).then(function(receipt) {      
+       
+
+}).catch(function(error) {
+  console.warn(error);
+    });
+});
+
 
 
 

@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >0.5.0;
 
 contract Polling {
  
@@ -55,7 +56,7 @@ bool private winningYearDeclared;
       //  emit votingProcess(msg.sender);
         
         //check voter is not double voting
-        require(votersA[msg.sender] == false &&  votersB[msg.sender]==false);
+        require(votersA[msg.sender] == false &&  votersB[msg.sender]==false,"User trying to double vote");
         
         //poll option selected by user is valid
         require(_chosenYear==optionA || _chosenYear==optionB);
